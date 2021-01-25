@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OCB Data Portal</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/css/bootstrap-select.min.css" />
+       
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/js/bootstrap-select.min.js" integrity="sha256-MvL1jf50gmloWCyAbHahSsBOBbeUtcvavfD6eSpGjvA=" crossorigin="anonymous"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md  fixed-top bg-white">
+      <div class="container">
+        <a href="../index.htm" class="navbar-brand" style="color: black;"><img src="../images/running.png"  height="38" width="50" alt="MSF" style="margin-right: 1em;">OCB Data Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="../index.htm" style="color: black;" class="nav-link ">Public DataSets</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.htm" style="color: black;" class="nav-link">Private DataSets</a>
+            </li>
+              <li class="nav-item">
+              <a style="color: black;" href="../index.htm" class="nav-link">All DataSets</a>
+            </li>  
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+
+              <li class="nav-item dropdown">
+                <a style="color: black;" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                  aria-expanded="false">
+                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h5 class="dropdown-item-text mb-0">Nicolas Degroodt</h5>
+                  <p class="dropdown-item-text text-muted mb-0">Nicolas.Degroodt@brussels.msf.org</p>
+                  <div class="dropdown-divider"></div>
+                  <a style="color: black;" href="/auth/signout" class="dropdown-item">Sign Out</a>
+                </div>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="container">
+
+      <div class="container">
+  <form action="/savecontext" method="post">
+    <input type="hidden" name="user" value=Nicolas.Degroodt@brussels.msf.org>
+    
+
+
+
+    <div class="input-group mb-3">
+      <select class="selectpicker" id="missionSelect" required name="project_id"
+        onchange="window.location=''+this.value" data-width="100%" data-live-search="true" data-style="btn-danger" title="Choose an MSF project">
+        <option class="  filledin mission" value="employeev10.htm" selected="selected">Employee v1.0</option>
+        <option class="  mission" value="2">Project v1.0</option>
+        
+      </select>
+    </div>
+    <small class="form-text text-muted text-left">Last updated on June 11, 2020, 18:27 UTC by
+      Nicolas.Degroodt@brussels.msf.org.
+    </small>
+
+
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+	  <h5 class="card-title">Description</h5>
+        <p class="card-text text-muted">
+		This DataSet contains employee's basic information.<br/>
+		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Example</h5>
+        <p class="card-text text-muted">Here is a full example of the data you can get from the REST API.</p>
+		<pre style="border: 1px outset black;"><code id="json-container"></code></pre>
+		<script>
+			const data = {
+				"code": "00015209",
+				"greetings": "Mr.",
+				"firstName": "Stefania",
+				"lastName": "Kjhzkdhqls",
+				"languageCode": "EN",
+				"modifiedOn": "2016-02-28T16:41:41.090CET",
+				"effectiveDate": "2019-07-22",
+				"endDate": "\"\"",
+				"categoryCode": "HQ",
+				"postTitle": "Cooker",
+				"nationality": "Belgian",
+				"maritalStatus": "Single",
+				"dateOfBirth": "2000-01-26",
+				"dateOfDeath": "2015-05-23",
+				"gender": "Female",
+				"belgiumNationalID": "123-456789",
+				"birthCity": "Rome",
+				"birthCountry": "Italy",
+				"phones":{
+					"mobile": "+32 477 123456",
+					"home": "+39 128 26 95 069",
+					"work": "example",
+					"fax": "example"
+				},
+				"emails":{
+					"personnal": "azzzws@yahoo.co.uk",
+					"personnalMsf": "prenom.name@brussels.msf.org",
+					"functional": "integration.it@brussels.msf.org"
+				},
+				"addresses":{
+					"main":{"streetName": "Rue de la Station", "streetName2": "example", "streetNumber": "123", "city": "Brussels"},
+					"others":[
+						{"streetName": "Rue de la Station", "streetName2": "example", "streetNumber": "123", "city": "Brussels"}
+					]
+				},
+				"bank":{"holderName": "Firstname Lastname", "name": "ING", "accountNumber": "BE99 9999 9999 9999"}
+			}
+
+			document.getElementById('json-container').innerHTML = JSON.stringify(data, null, 2);
+		</script>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Lineage</h5>
+        <p class="card-text text-muted">In this section we describe the sources and the transformations from the source to this model. We also list the consumers of the data.
+        <div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Owner</label>
+          <div class="col-sm-8">
+            <p>HR (Pierre Lefebvre)</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Sources</label>
+          <div class="col-sm-8">
+            <p>HRnet</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
+          <div class="col-sm-8">
+            <p>talend (job EMP_RS_10_Employee_0.1 in Employee Project</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Consumers</label>
+          <div class="col-sm-8">
+            <p>FIN (Franco Fava): talend job FIN_M_Import_Employee_CODA_0.1 in ACCOUNTING Project</p>
+			<p>FIN (Franco Fava): talend job FIN_M_Import_Employee_CODA_Deactivation_0.1 in ACCOUNTING Project</p>
+			<p>FIN (Franco Fava): talend job FIN_M_Import_Employee_Unifield_0.1 in ACCOUNTING Project</p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Glossary</h5>
+        <p class="card-text text-muted">Here is the business description of each data field.</p>
+		<table style="width:100%">
+			<tr><th>Field</th><th></th><th></th><th>Business description</th></tr>
+			<tr><td>Code</td><td></td><td></td><td>Unique identifier of the employee in HR Department</td></tr>
+			<tr><td>greetings</td><td></td><td></td><td></td></tr>
+			<tr><td>firstName</td><td></td><td></td><td></td></tr>
+			<tr><td>lastName</td><td></td><td></td><td></td></tr>
+			<tr><td>languageCode</td><td></td><td></td><td></td></tr>
+			<tr><td>modifiedOn</td><td></td><td></td><td>Last time the employee's info were edited in HRnet</td></tr>
+			<tr><td>effectiveDate</td><td></td><td></td><td></td></tr>
+			<tr><td>endDate</td><td></td><td><td></td></td></tr>
+			<tr><td>categoryCode</td><td></td><td></td><td></td></tr>
+			<tr><td>postTitle</td><td></td><td><td></td></td></tr>
+			<tr><td>nationality</td><td></td><td><td></td></td></tr>
+			<tr><td>maritalStatus</td><td></td><td></td><td></td></tr>
+			<tr><td>dateOfBirth</td><td></td><td></td><td></td></tr>
+			<tr><td>dateOfDeath</td><td></td><td></td><td></td></tr>
+			<tr><td>gender</td><td></td><td><td></td></td></tr>
+			<tr><td>belgiumNationalID</td><td></td><td></td><td></td></tr>
+			<tr><td>birthCity</td><td></td><td></td><td></td></tr>
+			<tr><td>birthCountry</td><td></td><td></td><td></td></tr>
+			<tr><td>phones</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td>mobile</td><td></td><td></td></tr>
+			<tr><td></td><td>home</td><td></td><td></td></tr>
+			<tr><td></td><td>work</td><td></td><td></td></tr>
+			<tr><td></td><td>fax</td><td></td><td></td></tr>
+			<tr><td>addresses</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td>main</td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetName</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetName2</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetNumber</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>city</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td>others</td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetName</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetName2</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>streetNumber</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td>city</td><td></td><td></td><td></td></tr>
+			<tr><td>bank</td><td></td><td></td><td></td></tr>
+			<tr><td></td><td>holderName</td><td></td><td></td></tr>
+			<tr><td></td><td>name</td><td></td><td></td></tr>
+			<tr><td></td><td>accountNumber</td><td></td><td></td></tr>
+		</table>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Access</h5>
+        <p class="card-text text-muted">Data are availlable through <b>REST API</b>, Protected by Password. Access need to be validated.
+        <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">API Documentaton</label>
+          <div class="col-sm-2">
+            <p>
+				<a href="API_Documentation/employee10-openapi30.json">openapi30</a>
+				<br/>
+				<a href="API_Documentation/employee10-swagger20.json">swagger20</a>
+			</p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+      <button type="submit"  class="btn" style="color:white;background-color: #EE0000;border-radius: 2rem;">
+        Request Access
+        
+      </button></div>
+  </form>
+</div>
+<br>
+
+    </main>
+  </body>
+</html>

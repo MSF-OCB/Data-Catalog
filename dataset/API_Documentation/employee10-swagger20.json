@@ -1,0 +1,276 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to access Employee data",
+    "version" : "1.0",
+    "title" : "Employee v1.0",
+    "contact" : { }
+  },
+  "host" : "eu1no2.eu.api-mocks.com",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "security" : [ {
+    "Basic authentication" : [ ]
+  } ],
+  "paths" : {
+    "/" : {
+      "get" : {
+        "summary" : "Search employee",
+        "parameters" : [ {
+          "name" : "modifiedDate",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "format" : "date",
+          "x-example" : "2019-08-15"
+        }, {
+          "name" : "categoryType",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "IS"
+        }, {
+          "name" : "active",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean",
+          "description" : "Default : true"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Employee%20Basic"
+              }
+            }
+          },
+          "204" : {
+            "description" : "When the query return no results"
+          },
+          "400" : {
+            "description" : "In case of bad parameters, because we want to limit the number of records retrieved",
+            "schema" : {
+              "$ref" : "#/definitions/Status"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "Basic authentication" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Employee Basic" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The HrNet reference number",
+          "example" : "00015209"
+        },
+        "greetings" : {
+          "type" : "string",
+          "example" : "Mr."
+        },
+        "firstName" : {
+          "type" : "string",
+          "example" : "Stefania"
+        },
+        "lastName" : {
+          "type" : "string",
+          "example" : "Kjhzkdhqls"
+        },
+        "languageCode" : {
+          "type" : "string",
+          "example" : "EN"
+        },
+        "modifiedOn" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2016-02-28T16:41:41.090CET"
+        },
+        "effectiveDate" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2019-07-22"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "\"\""
+        },
+        "categoryCode" : {
+          "type" : "string",
+          "example" : "HQ"
+        },
+        "postTitle" : {
+          "type" : "string",
+          "example" : "Cooker"
+        },
+        "nationality" : {
+          "type" : "string",
+          "example" : "Belgian"
+        },
+        "maritalStatus" : {
+          "type" : "string",
+          "example" : "Single"
+        },
+        "dateOfBirth" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2000-01-26"
+        },
+        "dateOfDeath" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "gender" : {
+          "type" : "string",
+          "example" : "Female"
+        },
+        "belgiumNationalID" : {
+          "type" : "string",
+          "example" : "123-456789"
+        },
+        "birthCity" : {
+          "type" : "string",
+          "example" : "Rome"
+        },
+        "birthCountry" : {
+          "type" : "string",
+          "example" : "Italy"
+        },
+        "phones" : {
+          "type" : "object",
+          "properties" : {
+            "mobile" : {
+              "type" : "string",
+              "example" : "+32 477 123456"
+            },
+            "home" : {
+              "type" : "string",
+              "example" : "+39 128 26 95 069"
+            },
+            "work" : {
+              "type" : "string"
+            },
+            "fax" : {
+              "type" : "string"
+            }
+          }
+        },
+        "emails" : {
+          "type" : "object",
+          "properties" : {
+            "personnal" : {
+              "type" : "string",
+              "example" : "azzzws@yahoo.co.uk"
+            },
+            "personnalMsf" : {
+              "type" : "string",
+              "example" : "prenom.name@brussels.msf.org"
+            },
+            "functional" : {
+              "type" : "string",
+              "example" : "integration.it@brussels.msf.org"
+            }
+          }
+        },
+        "addresses" : {
+          "type" : "object",
+          "properties" : {
+            "main" : {
+              "$ref" : "#/definitions/Address"
+            },
+            "others" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Address"
+              }
+            }
+          }
+        },
+        "bank" : {
+          "type" : "object",
+          "properties" : {
+            "holderName" : {
+              "type" : "string",
+              "example" : "Firstname Lastname"
+            },
+            "name" : {
+              "type" : "string",
+              "example" : "ING"
+            },
+            "accountNumber" : {
+              "type" : "string",
+              "example" : "BE99 9999 9999 9999"
+            },
+            "bic" : {
+              "type" : "string",
+              "example" : "BBRUBEBB"
+            },
+            "isIBAN" : {
+              "type" : "boolean",
+              "example" : true
+            },
+            "address" : {
+              "$ref" : "#/definitions/Address"
+            }
+          }
+        }
+      }
+    },
+    "Address" : {
+      "type" : "object",
+      "properties" : {
+        "streetName" : {
+          "type" : "string",
+          "example" : "Rue de la Station"
+        },
+        "streetName2" : {
+          "type" : "string"
+        },
+        "streetNumber" : {
+          "type" : "string",
+          "example" : "123"
+        },
+        "city" : {
+          "type" : "string",
+          "example" : "Brussels"
+        },
+        "postCode" : {
+          "type" : "string",
+          "example" : "1000"
+        },
+        "country" : {
+          "type" : "string",
+          "example" : "BE"
+        }
+      }
+    },
+    "Status" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "required" : [ "code" ],
+          "type" : "object",
+          "properties" : {
+            "code" : {
+              "type" : "integer"
+            },
+            "message" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "example" : "{\r\n    \"status\" : { \r\n        \"code\": 100, \r\n        \"message\" : \"You can not ask for inactive records for more than 6 months in the past\" \r\n    }\r\n}"
+    }
+  }
+}
