@@ -27,7 +27,7 @@
   <body>
     <nav class="navbar navbar-expand-md  fixed-top bg-white">
       <div class="container">
-        <a href="index.htm" class="navbar-brand" style="color: black;"><img src="images/running.png"  height="38" width="50" alt="MSF" style="margin-right: 1em;">OCB Data Portal</a>
+        <a href="index.html" class="navbar-brand" style="color: black;"><img src="images/running.png"  height="38" width="50" alt="MSF" style="margin-right: 1em;">OCB Data Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,13 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a href="index.htm" style="color: black;" class="nav-link ">Public DataSets</a>
+              <a href="index.html" style="color: black;" class="nav-link ">Public DataSets</a>
             </li>
             <li class="nav-item">
-              <a href="index.htm" style="color: black;" class="nav-link">Private DataSets</a>
+              <a href="index.html" style="color: black;" class="nav-link">Private DataSets</a>
             </li>
               <li class="nav-item">
-              <a style="color: black;" href="index.htm" class="nav-link">All DataSets</a>
+              <a style="color: black;" href="index.html" class="nav-link">All DataSets</a>
             </li>  
           </ul>
           <ul class="navbar-nav justify-content-end">
@@ -72,7 +72,7 @@
 
  <div class="input-group mb-8">
     <form action="/action_page.php">
-      <input class="  filledin mission" type="text" placeholder="Search.." name="search">
+      <input class="  filledin mission" type="text" placeholder="Search... (will work later on)" name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -80,6 +80,14 @@
     <small class="form-text text-muted text-left">This screen list all availlable datasets corresponding to your search criteria
     </small>
 
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+	  <h5 class="card-title"><a href="./dataset/projectv10.htm">Project v1.0</a></h5>
+        <p class="card-text text-muted">
+		This DataSet contains Field Project's info.<br/>
+		This DataSet contains info from all active <b>field projects</b>.
+        </p>
+      </div>
 
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
@@ -90,14 +98,6 @@
         </p>
       </div>
     </div>
-    <div class="card shadow-sm staff-margin">
-      <div class=" card-body">
-	  <h5 class="card-title">Project v1.0</h5>
-        <p class="card-text text-muted">
-		This DataSet contains employee's basic information.<br/>
-		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
-        </p>
-      </div>
     </div>
   </form>
 </div>
