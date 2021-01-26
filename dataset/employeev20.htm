@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OCB Data Portal</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/css/bootstrap-select.min.css" />
+       
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/js/bootstrap-select.min.js" integrity="sha256-MvL1jf50gmloWCyAbHahSsBOBbeUtcvavfD6eSpGjvA=" crossorigin="anonymous"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md  fixed-top bg-white">
+      <div class="container">
+        <a href="../index.html" class="navbar-brand" style="color: black;"><img src="../images/running.png"  height="38" width="50" alt="MSF" style="margin-right: 1em;">OCB Data Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="../index.html" style="color: black;" class="nav-link ">Public DataSets</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" style="color: black;" class="nav-link">Private DataSets</a>
+            </li>
+              <li class="nav-item">
+              <a style="color: black;" href="../index.html" class="nav-link">All DataSets</a>
+            </li>  
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+
+              <li class="nav-item dropdown">
+                <a style="color: black;" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                  aria-expanded="false">
+                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h5 class="dropdown-item-text mb-0">Authentification will come later on</h5>
+                  <p class="dropdown-item-text text-muted mb-0">Authentification.will.come.later.on@brussels.msf.org</p>
+                  <div class="dropdown-divider"></div>
+                  <a style="color: black;" href="/auth/signout" class="dropdown-item">Sign Out (Later)</a>
+                </div>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="container">
+
+      <div class="container">
+  <form action="/savecontext" method="post">
+    <input type="hidden" name="user" value=Authentification.will.come.later.on@brussels.msf.org>
+    
+
+
+
+    <div class="input-group mb-3">
+      <select class="selectpicker" id="missionSelect" required name="project_id"
+        onchange="window.location=''+this.value" data-width="100%" data-live-search="true" data-style="btn-danger" title="Choose an MSF project">
+        <option class="  filledin mission" value="employeev20.htm" selected="selected">Employee Basic Info v2.0</option>
+		<option class="  mission" value="projectv10.htm">Project v1.0</option>
+		<option class="  mission" value="employeev10.htm" >Employee v1.0 - DISCONTINUED</option>
+        
+      </select>
+    </div>
+    <small class="form-text text-muted text-left">Last updated on June 11, 2020, 18:27 UTC by
+      Authentification.will.come.later.on@brussels.msf.org.
+    </small>
+
+
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+	  <h5 class="card-title">Description</h5>
+        <p class="card-text text-muted">
+		This DataSet contains employee's basic information.<br/>
+		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Example</h5>
+        <p class="card-text text-muted">Here is a full example of the data you can get from the REST API.</p>
+		<pre style="border: 1px outset black;"><code id="json-container"></code></pre>
+		<script>
+			const data = {
+				"code": "99999999",
+				"greetings": "Mr.",
+				"firstname": "William",
+				"lastname": "Doe",
+				"nickname":"Bill",
+				"languageCode": "EN",
+				"workphone":"+32477999999",
+				"personal_msf_email":"William.Doe@brussels.msf.org",
+				"functional_email":"MSFOCB-Mission-HrCo@brussels.msf.org",
+				"contract": {
+					"type": "Fixed Term Contract", 
+					"category": "Expatriate without ONSS", 
+					"end_date": [], 
+					"from_date": "2000-01-01", 
+					"reference": "8888888888"
+				},
+				"mainjd": {
+					"grade": "3", 
+					"category": "IS", 
+					"end_date": [], 
+					"from_date": "2020-11-13", 
+					"costcenter": "PCF199&&", 
+					"hq_project": [], 
+					"hr_mission": "BECF1", 
+					"post_title": "Logistics Team Leader XXX", 
+					"imu_manager": "77777777", 
+					"line_manager": "66666666", 
+					"project_code": "PCF112", 
+					"location_code": "CF BGF", 
+					"contract_reference": "5555555555", 
+					"functional_manager": "44444444", 
+					"post_title_reference": "3333333333", 
+					"fct_profile_reference": "LM00900"
+				},
+				"covering_jd":{
+					"category": "IS", 
+					"end_date": [], 
+					"from_date": "2020-01-01", 
+					"costcenter": "DCROCHZ0", 
+					"hq_project": [], 
+					"hr_mission": "XXXX", 
+					"post_title": "Watsan Manager", 
+					"imu_manager": "11111111", 
+					"line_manager": [], 
+					"project_code": "BEPSCH", 
+					"location_code": "XX XXX", 
+					"contract_reference": "9876543210", 
+					"functional_manager": [], 
+					"post_title_reference": "0123456789", 
+					"fct_profile_reference": "AA12345"
+				}
+			}
+
+			document.getElementById('json-container').innerHTML = JSON.stringify(data, null, 2);
+		</script>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Lineage</h5>
+        <p class="card-text text-muted">In this section we describe the sources and the transformations from the source to this model. We also list the consumers of the data.
+        <div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Owner</label>
+          <div class="col-sm-8">
+            <p>HR (Pierre Lefebvre)</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Sources</label>
+          <div class="col-sm-8">
+            <p>HRnet</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
+          <div class="col-sm-8">
+            <p>talend (job EMP_M_10_Employee in HR Project</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Consumers</label>
+          <div class="col-sm-8">
+            <p>None</p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Glossary</h5>
+        <p class="card-text text-muted">Here is the business description of each data field.</p>
+		<table style="width:100%">
+			<tr><th>Field</th><th></th><th></th><th>Business description</th></tr>
+			<tr><td>Code</td><td></td><td></td><td>Unique identifier of the employee in HR Department</td></tr>
+			<tr><td>greetings</td><td></td><td></td><td></td></tr>
+			<tr><td>firstName</td><td></td><td></td><td></td></tr>
+			<tr><td>lastName</td><td></td><td></td><td></td></tr>
+			<tr><td>languageCode</td><td></td><td></td><td></td></tr>
+		</table>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Access</h5>
+        <p class="card-text text-muted">Data are availlable through <b>GrphQL API</b>, Protected by Password. Access need to be validated.
+        <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">API Documentaton</label>
+          <div class="col-sm-2">
+            <p>
+				<a href="API_Documentation/employee10-openapi30.json"> </a>
+				<br/>
+				<a href="API_Documentation/employee10-swagger20.json"> </a>
+			</p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+      <button type="submit"  class="btn" style="color:white;background-color: #EE0000;border-radius: 2rem;">
+        Request Access
+        
+      </button></div>
+  </form>
+</div>
+<br>
+
+    </main>
+  </body>
+</html>
