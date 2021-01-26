@@ -52,10 +52,10 @@
                     <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <h5 class="dropdown-item-text mb-0">Nicolas Degroodt</h5>
-                  <p class="dropdown-item-text text-muted mb-0">Nicolas.Degroodt@brussels.msf.org</p>
+                  <h5 class="dropdown-item-text mb-0">Authentification will come later on</h5>
+                  <p class="dropdown-item-text text-muted mb-0">Authentification.will.come.later.on@brussels.msf.org</p>
                   <div class="dropdown-divider"></div>
-                  <a style="color: black;" href="/auth/signout" class="dropdown-item">Sign Out</a>
+                  <a style="color: black;" href="/auth/signout" class="dropdown-item">Sign Out (Later)</a>
                 </div>
               </li>
 
@@ -67,7 +67,7 @@
 
       <div class="container">
   <form action="/savecontext" method="post">
-    <input type="hidden" name="user" value=Nicolas.Degroodt@brussels.msf.org>
+    <input type="hidden" name="user" value=Authentification.will.come.later.on@brussels.msf.org>
     
 
  <div class="input-group mb-8">
@@ -80,23 +80,37 @@
     <small class="form-text text-muted text-left">This screen list all availlable datasets corresponding to your search criteria
     </small>
 
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+	  <h5 class="card-title">[Protected] <a href="./dataset/employeev20.htm">Employee Basic Info V2.0</a>  </h5>
+        <p class="card-text text-muted">
+		This DataSet contains employee's basic information.<br/>
+		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
+        </p>
+		<p>Access: <span>GraphQL</span> </p>
+      </div>
+    </div>
+
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
-	  <h5 class="card-title"><a href="./dataset/projectv10.htm">Project v1.0</a></h5>
+	  <h5 class="card-title">[MSF Public] <a href="./dataset/projectv10.htm">Project v1.0</a> </h5>
         <p class="card-text text-muted">
 		This DataSet contains Field Project's info.<br/>
 		This DataSet contains info from all active <b>field projects</b>.
         </p>
+		<p>Access: <span>GraphQL</span> <span>Power BI</span> </p>
       </div>
+	</div>
 
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
-	  <h5 class="card-title"><a href="./dataset/employeev10.htm">Employee V1.0</a></h5>
+	  <h5 class="card-title">[Protected] <a href="./dataset/employeev10.htm">Employee V1.0 </a> <span style="color: #FF0000">Discontinued</span></h5>
         <p class="card-text text-muted">
 		This DataSet contains employee's basic information.<br/>
 		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
         </p>
       </div>
+	  
     </div>
     </div>
   </form>
