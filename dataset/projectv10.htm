@@ -95,11 +95,40 @@
     </div>
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
+        <h5 class="card-title">Access</h5>
+        <p class="card-text text-muted"></p>
+        <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">GraphQL API</label>
+          <div class="col-sm-2">
+            <a href="GraphQL"> ... GraphQL URL ... </a>
+          </div>
+		</div>
+		  <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">PowerBI</label>
+          <div class="col-sm-8">
+            <a href="https://app.powerbi.com/groups/f92cbc79-de74-4a75-9ace-942a8453291b/reports/72273133-dcc6-42a0-bf31-11e7d00fcc47/ReportSection">Power BI Report : DataCatalog - Project v1.0</a>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
         <h5 class="card-title">Example</h5>
-        <p class="card-text text-muted">Here is a full example of the data you can get from the GraphQL API.</p>
+		<p class="card-text text-muted">Here is a full example of the data you get from the GraphQL API.</p>
 		<pre style="border: 1px outset black;"><code id="json-container"></code></pre>
 		<script>
 			const data = {
+				"code": "XX1-03",
+				"name": "XXXXXX Hospital",
+			}
+
+			document.getElementById('json-container').innerHTML = JSON.stringify(data, null, 2);
+		</script>
+        <p class="card-text text-muted">Here is a full example of the data you will get in the future from the GraphQL API.</p>
+		<pre style="border: 1px outset black;"><code id="json-container2"></code></pre>
+		<script>
+			const data2 = {
 				"code": "XX1-03",
 				"name": "XXXXXX Hospital",
 				"cell":"Cell4",
@@ -124,7 +153,7 @@
 				}
 			}
 
-			document.getElementById('json-container').innerHTML = JSON.stringify(data, null, 2);
+			document.getElementById('json-container2').innerHTML = JSON.stringify(data2, null, 2);
 		</script>
       </div>
     </div>
@@ -155,7 +184,8 @@
         <div class="form-group row">
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
           <div class="col-sm-8">
-            <p>
+			<p>Master data application is Coda maintained by Guilhem. Some additional infos from GIS.</p>
+			<p>
 			  talend (job DW_M_10_ProjectFromCoda_0.1<br>
 			  talend (job DW_M_10_ProjectFromGIS_0.1
 			</p>
@@ -175,12 +205,18 @@
         <h5 class="card-title">Data Glossary</h5>
         <p class="card-text text-muted">Here is the business description of each data field.</p>
 		<table style="width:100%">
-			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th></tr>
-			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td></tr>
-			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td></tr>
-			<tr><td colspan="4">cell</td><td>String</td><td>Cellule where the project is handled</td></tr>
-			<tr><td colspan="4">ops_opening_date</td><td>Date (YYYY-MM-DD)</td><td>Opening date of the operation for this project</td></tr>
-			<tr><td colspan="4">ops_closing_date</td><td>Date (YYYY-MM-DD)</td><td>Closing date of the operation for this project. Empty for ongoing project.</td></tr>
+			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th><th>Lineage</th></tr>
+			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td><td>comes from Coda or GIS</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td><td>comes from Coda or GIS</td></tr>
+		</table>
+		 <p class="card-text text-muted">Here is the business description of each future data field.</p>
+		<table style="width:100%">
+			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th><th>Lineage</th></tr>
+			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td><td>comes from Coda or GIS</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td><td>comes from Coda or GIS</td></tr>
+			<tr><td colspan="4">cell</td><td>String</td><td>Cellule where the project is handled</td><td>comes from Coda or GIS</td></tr>
+			<tr><td colspan="4">ops_opening_date</td><td>Date (YYYY-MM-DD)</td><td>Opening date of the operation for this project</td><td>comes from Coda or GIS</td></tr>
+			<tr><td colspan="4">ops_closing_date</td><td>Date (YYYY-MM-DD)</td><td>Closing date of the operation for this project. Empty for ongoing project.</td><td>comes from Coda or GIS</td></tr>
 			<tr><td colspan="4">apps</td><td></td><td>Contains other info from apps</td></tr>
 			<tr><td>-</td><td colspan="3">coda</td><td></td><td></td></tr>
 			<tr><td>-</td><td>-</td><td colspan="2">start_period</td><td>String(YYYY-MM)</td><td>Opening Period in Accounting</td></tr>
@@ -194,25 +230,6 @@
 			<tr><td>-</td><td>-</td><td colspan="2">locality</td><td>String</td><td>Official localty of the project</td></tr>
 			<tr><td>-</td><td>-</td><td colspan="2">presence_type</td><td>String</td><td>How to describe?</td></tr>
 		</table>
-      </div>
-    </div>
-    <div class="card shadow-sm staff-margin">
-      <div class=" card-body">
-        <h5 class="card-title">Access</h5>
-        <p class="card-text text-muted"></p>
-        <div class="form-group row">
-          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">GraphQL API</label>
-          <div class="col-sm-2">
-            <a href="GraphQL"> ... GraphQL URL ... </a>
-          </div>
-		</div>
-		  <div class="form-group row">
-          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">PowerBI</label>
-          <div class="col-sm-8">
-            <a href="https://app.powerbi.com/groups/f92cbc79-de74-4a75-9ace-942a8453291b/reports/72273133-dcc6-42a0-bf31-11e7d00fcc47/ReportSection">Power BI Report : DataCatalog - Project v1.0</a>
-          </div>
-        </div>
-        </p>
       </div>
     </div>
       <button type="submit"  class="btn" style="color:white;background-color: #EE0000;border-radius: 2rem;">
