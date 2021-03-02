@@ -89,7 +89,8 @@
       <div class=" card-body">
 	  <h5 class="card-title">Description</h5>
         <p class="card-text text-muted">
-		This DataSet contains field project's basic information.<br/>
+		This DataSet contains field project's basic information. All info are collected since 2018.<br/>
+		To filter on current ops project, filter on closing_year blank and type contains "ocb_operation".
         </p>
       </div>
     </div>
@@ -170,10 +171,16 @@
         <div class="form-group row">
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
           <div class="col-sm-8">
-			<p>Master data application is Coda maintained by Guilhem. Some additional infos from GIS.</p>
 			<p>
-			  talend (job DW_M_10_ProjectFromCoda_0.1<br>
-			  talend (job DW_M_10_ProjectFromGIS_0.1
+			  Master data application is an Excel file maintains by the OPS. <br>
+			  When a code is in the Excel file it is the master file to maintain info (code, name, activity, etc.)<br>
+			  Coda maintained by Guilhem provide info as well. If a code is in coda it is flag as financial. If exists in the XLS ops file then the ops file is the leader else all info comes from Coda. <br>
+			  Some additional infos from GIS.
+			</p>
+			<p>
+			  talend (job DW_M_10_ProjectCodesFromOpsXls) <br>
+			  talend (job DW_M_10_ProjectFromCoda) <br>
+			  talend (job DW_M_10_ProjectFromGIS) 
 			</p>
           </div>
         </div>
