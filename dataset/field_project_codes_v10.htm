@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OCB Data Portal</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/css/bootstrap-select.min.css" />
+       
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.15/js/bootstrap-select.min.js" integrity="sha256-MvL1jf50gmloWCyAbHahSsBOBbeUtcvavfD6eSpGjvA=" crossorigin="anonymous"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md  fixed-top bg-white">
+      <div class="container">
+        <a href="../index.html" class="navbar-brand" style="color: black;"><img src="../images/running.png"  height="38" width="50" alt="MSF" style="margin-right: 1em;">OCB Data Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="../index.html" style="color: black;" class="nav-link ">Public DataSets</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" style="color: black;" class="nav-link">Private DataSets</a>
+            </li>
+              <li class="nav-item">
+              <a style="color: black;" href="../index.html" class="nav-link">All DataSets</a>
+            </li>  
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+
+              <li class="nav-item dropdown">
+                <a style="color: black;" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                  aria-expanded="false">
+                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h5 class="dropdown-item-text mb-0">Authentification will come later on</h5>
+                  <p class="dropdown-item-text text-muted mb-0">Authentification.will.come.later.on@brussels.msf.org</p>
+                  <div class="dropdown-divider"></div>
+                  <a style="color: black;" href="/auth/signout" class="dropdown-item">Sign Out (Later)</a>
+                </div>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="container">
+
+      <div class="container">
+  <form action="/savecontext" method="post">
+    <input type="hidden" name="user" value=Authentification.will.come.later.on@brussels.msf.org>
+    
+
+
+
+    <div class="input-group mb-3">
+      <select class="selectpicker" id="missionSelect" required name="project_id"
+        onchange="window.location=''+this.value" data-width="100%" data-live-search="true" data-style="btn-danger" title="Choose an MSF project">
+        <option class="  mission" value="employeev20.htm">Employee Basic Info v2.0</option>
+		<option class="  mission" value="field_mission_codes_v10.htm"  >Field Mission Codes v1.0</option>
+		<option class="  filledin mission" value="field_project_codes_v10.htm"  selected="selected">Field Project Codes v1.0</option>
+        <option class="  mission" value="employeev10.htm">Employee v1.0 DISCONTINUED</option>
+      </select>
+    </div>
+    <small class="form-text text-muted text-left">Last updated on Jan 31, 2021, 18:27 UTC by
+      Authentification.will.come.later.on@brussels.msf.org.
+    </small>
+
+
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+	  <h5 class="card-title">Description</h5>
+        <p class="card-text text-muted">
+		This DataSet contains field project's basic information.<br/>
+		A project code can be a <b>financial</b> code <b>and/or</b> a <b>operational code</b>
+        </p>
+		<p>
+		A <b>financial code</b> is ... .
+		</p>
+		<p>
+		A <b>operational code</b> is ... .
+		</p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Access</h5>
+        <p class="card-text text-muted"></p>
+        <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">GraphQL API</label>
+          <div>
+            <p>
+				URL: https://hasura-main-catalog.ocb.msf.org/v1/graphql<br>
+				OBJECT: ocb_catalog_field_project_code_v10
+			</p>
+          </div>
+		</div>
+		  <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">PowerBI</label>
+          <div class="col-sm-8">
+            <a href="https://app.powerbi.com/groups/87dbfcde-e464-4fa1-85dc-d7a4e506c833/reports/ef4a645f-6f9e-4930-9946-f3145297c39b/ReportSection">Power BI Report : DataCatalog - Project v1.0</a>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Example</h5>
+		<p class="card-text text-muted">Here is a full example of the data you will get in the future from the GraphQL API.</p>
+		<pre style="border: 1px outset black;"><code id="json-container2"></code></pre>
+		<script>
+			const data2 = {
+				"code": "XX1-03",
+				"name": "XXXXXX Hospital",
+				"cell":"Cell4",
+				"opening_date":"1999-05-01",
+				"estimate_closing_date":"2000-12-31",
+				"closing_year":2000,
+				"activity":["emergency","violence"],
+				"type":["ocb_operation","finance"]
+			}
+
+			document.getElementById('json-container2').innerHTML = JSON.stringify(data2, null, 2);
+		</script>
+      </div>
+    </div>
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Ownership</h5>
+		<p>Operational data are maintained by the Ops. (Christine Januel).</p>
+		<p>Financial data are maintained by the finance dept (Fuilhem Messaut).</p>
+	  </div>
+	</div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Lineage</h5>
+        <p class="card-text text-muted">In this section we describe the sources and the transformations from the source to this model. We also list the consumers of the data.
+        <div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Owner</label>
+          <div class="col-sm-8">
+            <p>FIN (Guilhem Messaut) 
+			<br>
+			OPS (Christine Januel)
+			</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Sources</label>
+          <div class="col-sm-8">
+            <p>Coda<br>Xls file maintained by Ops</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Refresh</label>
+          <div class="col-sm-8">
+            <p>
+			  Data are updated every night (02:00 AM GMT+1)
+			</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
+          <div class="col-sm-8">
+			<p>
+			  Master data application is an Excel file maintains by the OPS. <br>
+			  When a code is operational and financial, then the master data is filled by the ops info<br>
+			</p>
+			<p>
+			  talend (job DW_M_10_ProjectCodesFromOpsXls) <br>
+			  talend (job DW_M_10_ProjectFromCoda) <br>
+			  talend (job DW_M_10_ProjectFromGIS) 
+			</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Consumers</label>
+          <div class="col-sm-8">
+			<p>
+				WEFIN - talend (WEFIN_M_ProjectCode_Sync)
+				<br>
+				<a href="https://app.powerbi.com/groups/87dbfcde-e464-4fa1-85dc-d7a4e506c833/reports/ca7af934-a78e-4187-bef6-16c5efb7fe66/ReportSection37134192dbfdecb295b4">Power BI Report : DataCatalog - Project v1.0</a>
+			</p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Glossary</h5>
+		<p class="card-text text-muted">Here is the business description of each future data field.</p>
+		<p>
+			<b>Master Data</b>
+			<br>
+			All master data comes in priori from Ops then Fin.
+		</p>
+		<table style="width:100%">
+			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th><th>Lineage</th></tr>
+			<tr><td colspan="4">mission_code</td><td>String</td><td>Code of the project's mission<br>Link to the Field Mission Codes DataSet</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">cell</td><td>String</td><td>Cellule where the project is handled</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">opening_date</td><td>Date (YYYY-MM-DD)</td><td>Opening date of the operation for this project</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">estimated_closing_date</td><td>Date (YYYY-MM-DD)</td><td>Closing date of the operation for this project. Empty for ongoing project.</td><td>Ops, Fin</td></tr>
+			<tr><td colspan="4">closing year</td><td>Integer</td><td>Actual closing year of the project (empty for active project)</td><td>financial code : year of ops closing date <br> else TODO</tr>
+			<tr><td colspan="4">activity</td><td>Array of String</td><td>Operation activities</td><td>Ops</td></tr>
+			<tr><td colspan="4">type</td><td>Array of string</td><td>Type of the entry</td><td></td></tr>
+			<tr><td> + </td><td colspan="3">ocb_operation</td><td>String</td><td>Is an ocb operation project</td><td>Ops</td></tr>
+			<tr><td> + </td><td colspan="3">finance</td><td>String</td><td>Is an fincial project</td><td>Fin</td></tr>
+		</table>
+		<p>
+		<br><br>
+		</p>
+		<p>
+			<b>Application Data</b>
+			<br>
+			From Coda
+		</p>
+		<table style="width:100%">
+			<tr><th colspan="4">Field</th><th>Type</th><th colspan="2">Business description</th><th></th></tr>
+			<tr><td colspan="4">code</td><td>String</td><td colspan="2">Unique identifier of the project</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td colspan="2">Name of the Project</td></tr>
+			<tr><td colspan="4">cell</td><td>String</td><td colspan="2">Cellule where the project is handled</td><td></td></tr>
+			<tr><td colspan="4">start_period</td><td>Date (YYYY-MM-DD)</td><td colspan="2">First day of the accounting opening period</td></tr>
+			<tr><td colspan="4">end_period</td><td>Date (YYYY-MM-DD)</td><td colspan="2">Last Day of the accounting closing period</td></tr>
+			<tr>
+				<td colspan="4">coda_system</td>
+				<td>String</td>
+				<td>Flag to categorise the code</td>
+				<td>
+					ALL: à créer dans tous les sytemes (comme la majeurité de codes terrain standard)
+					<br>
+					FSP (Fin Supply) : codes projets seulement pour finance et supply (ex EPREP)
+					<br>					
+					FIN : codes projets seulement pour les finances (ex. associatif)
+					<br>
+					NWF (No WeFin): pour tous les codes projets qui doivent etre crées seulement dans coda 
+				</td>
+			</tr>
+			<tr><td colspan="4">ops_start_date</td><td>TODO</td><td>TODO</td><td>Ops start date in coda</td></tr>
+			<tr><td colspan="4">ops_end_date</td><td>TODO</td><td>TODO</td><td>Ops End date in Coda</td></tr>
+		</table>
+		
+      </div>
+    </div>
+      <button type="submit"  class="btn" style="color:white;background-color: #EE0000;border-radius: 2rem;">
+        Request Access - From now, contact Nicolas Degroodt
+        
+      </button></div>
+  </form>
+</div>
+<br>
+
+    </main>
+  </body>
+</html>

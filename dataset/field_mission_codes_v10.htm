@@ -76,76 +76,75 @@
       <select class="selectpicker" id="missionSelect" required name="project_id"
         onchange="window.location=''+this.value" data-width="100%" data-live-search="true" data-style="btn-danger" title="Choose an MSF project">
         <option class="  mission" value="employeev20.htm">Employee Basic Info v2.0</option>
-		<option class="  mission" value="field_mission_codes_v10.htm"  >Field Mission Codes v1.0</option>
-		<option class="  mission" value="field_project_codes_v10.htm">Field Project Codes v1.0</option>
-		<option class="  filledin mission" value="employeev10.htm" selected="selected">Employee v1.0 - DISCONTINUED</option>
-        
+		<option class="  filledin mission" value="field_mission_codes_v10.htm"  selected="selected">Field Mission Codes v1.0</option>
+		<option class="  mission" value="field_project_codes_v10.htm" >Field Project Codes v1.0</option>
+        <option class="  mission" value="employeev10.htm">Employee v1.0 DISCONTINUED</option>
       </select>
     </div>
-    <small class="form-text text-muted text-left">Last updated on June 11, 2020, 18:27 UTC by
+    <small class="form-text text-muted text-left">Last updated on Jan 31, 2021, 18:27 UTC by
       Authentification.will.come.later.on@brussels.msf.org.
     </small>
 
-<h5 style="color: #FF0000">Replaced by Employe Basic Info v2.0</h5>
+
     <div class="card shadow-sm staff-margin">
-	
       <div class=" card-body">
 	  <h5 class="card-title">Description</h5>
         <p class="card-text text-muted">
-		This DataSet contains employee's basic information.<br/>
-		This DataSet contains info from <b>HQ Staff</b>, <b>Internationnal</b> and <b>Mobile Implementation Officer (MIO)</b>.
+		This DataSet contains field project's basic information. All info are collected since 2018.<br/>
+		To filter on current ops project, filter on closing_year blank and type contains "ocb_operation".
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Access</h5>
+        <p class="card-text text-muted"></p>
+        <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">GraphQL API</label>
+          <div>
+            <p>
+				URL: https://hasura-main-catalog.ocb.msf.org/v1/graphql<br>
+				OBJECT: ocb_catalog_field_project_code_v10
+			</p>
+          </div>
+		</div>
+		  <div class="form-group row">
+          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">PowerBI</label>
+          <div class="col-sm-8">
+            <a href="https://app.powerbi.com/groups/87dbfcde-e464-4fa1-85dc-d7a4e506c833/reports/ef4a645f-6f9e-4930-9946-f3145297c39b/ReportSection">Power BI Report : DataCatalog - Project v1.0</a>
+          </div>
+        </div>
         </p>
       </div>
     </div>
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
         <h5 class="card-title">Example</h5>
-        <p class="card-text text-muted">Here is a full example of the data you can get from the REST API.</p>
-		<pre style="border: 1px outset black;"><code id="json-container"></code></pre>
+		<p class="card-text text-muted">Here is a full example of the data you will get in the future from the GraphQL API.</p>
+		<pre style="border: 1px outset black;"><code id="json-container2"></code></pre>
 		<script>
-			const data = {
-				"code": "00015209",
-				"greetings": "Mr.",
-				"firstName": "Stefania",
-				"lastName": "Kjhzkdhqls",
-				"languageCode": "EN",
-				"modifiedOn": "2016-02-28T16:41:41.090CET",
-				"effectiveDate": "2019-07-22",
-				"endDate": "\"\"",
-				"categoryCode": "HQ",
-				"postTitle": "Cooker",
-				"nationality": "Belgian",
-				"maritalStatus": "Single",
-				"dateOfBirth": "2000-01-26",
-				"dateOfDeath": "2015-05-23",
-				"gender": "Female",
-				"belgiumNationalID": "123-456789",
-				"birthCity": "Rome",
-				"birthCountry": "Italy",
-				"phones":{
-					"mobile": "+32 477 123456",
-					"home": "+39 128 26 95 069",
-					"work": "example",
-					"fax": "example"
-				},
-				"emails":{
-					"personnal": "azzzws@yahoo.co.uk",
-					"personnalMsf": "prenom.name@brussels.msf.org",
-					"functional": "integration.it@brussels.msf.org"
-				},
-				"addresses":{
-					"main":{"streetName": "Rue de la Station", "streetName2": "example", "streetNumber": "123", "city": "Brussels"},
-					"others":[
-						{"streetName": "Rue de la Station", "streetName2": "example", "streetNumber": "123", "city": "Brussels"}
-					]
-				},
-				"bank":{"holderName": "Firstname Lastname", "name": "ING", "accountNumber": "BE99 9999 9999 9999"}
+			const data2 = {
+				"code": "XX1-03",
+				"name": "XXXXXX Hospital",
+				"cell":"Cell4",
+				"opening_date":"1999-05-01",
+				"estimate_closing_date":"2000-12-31",
+				"closing_year":2000,
+				"activity":["emergency","violence"],
+				"type":["ocb_operation","finance"]
 			}
 
-			document.getElementById('json-container').innerHTML = JSON.stringify(data, null, 2);
+			document.getElementById('json-container2').innerHTML = JSON.stringify(data2, null, 2);
 		</script>
       </div>
     </div>
+	<div class="card shadow-sm staff-margin">
+      <div class=" card-body">
+        <h5 class="card-title">Data Ownership</h5>
+		<p>Data are maintained by the Ops. ("ocb_operation" flag in the type field).</p>
+		<p>Some projects are only financial project ("finance" flag in the type field).</p>
+	  </div>
+	</div>
     <div class="card shadow-sm staff-margin">
       <div class=" card-body">
         <h5 class="card-title">Data Lineage</h5>
@@ -153,27 +152,43 @@
         <div class="form-group row">
           <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Owner</label>
           <div class="col-sm-8">
-            <p>HR (Pierre Lefebvre)</p>
+            <p>FIN (Guilhem Messaut)</p>
           </div>
         </div>
 		<div class="form-group row">
           <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Sources</label>
           <div class="col-sm-8">
-            <p>HRnet</p>
+            <p>Coda<br>GIS</p>
+          </div>
+        </div>
+		<div class="form-group row">
+          <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Refresh</label>
+          <div class="col-sm-8">
+            <p>
+			  Data are updated every night (02:00 AM GMT+1)
+			</p>
           </div>
         </div>
         <div class="form-group row">
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
           <div class="col-sm-8">
-            <p>talend (job EMP_RS_10_Employee_0.1 in Employee Project</p>
+			<p>
+			  Master data application is an Excel file maintains by the OPS. <br>
+			  When a code is in the Excel file it is the master file to maintain info (code, name, activity, etc.)<br>
+			  Coda maintained by Guilhem provide info as well. If a code is in coda it is flag as financial. If exists in the XLS ops file then the ops file is the leader else all info comes from Coda. <br>
+			  Some additional infos from GIS.
+			</p>
+			<p>
+			  talend (job DW_M_10_ProjectCodesFromOpsXls) <br>
+			  talend (job DW_M_10_ProjectFromCoda) <br>
+			  talend (job DW_M_10_ProjectFromGIS) 
+			</p>
           </div>
         </div>
 		<div class="form-group row">
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Consumers</label>
           <div class="col-sm-8">
-            <p>FIN (Franco Fava): talend job FIN_M_Import_Employee_CODA_0.1 in ACCOUNTING Project</p>
-			<p>FIN (Franco Fava): talend job FIN_M_Import_Employee_CODA_Deactivation_0.1 in ACCOUNTING Project</p>
-			<p>FIN (Franco Fava): talend job FIN_M_Import_Employee_Unifield_0.1 in ACCOUNTING Project</p>
+            <p><a href="https://app.powerbi.com/groups/f92cbc79-de74-4a75-9ace-942a8453291b/reports/72273133-dcc6-42a0-bf31-11e7d00fcc47/ReportSection">Power BI Report : DataCatalog - Project v1.0</a></p>
           </div>
         </div>
         </p>
@@ -182,65 +197,21 @@
 	<div class="card shadow-sm staff-margin">
       <div class=" card-body">
         <h5 class="card-title">Data Glossary</h5>
-        <p class="card-text text-muted">Here is the business description of each data field.</p>
+		 <p class="card-text text-muted">Here is the business description of each future data field.</p>
 		<table style="width:100%">
-			<tr><th>Field</th><th></th><th></th><th>Business description</th></tr>
-			<tr><td>Code</td><td></td><td></td><td>Unique identifier of the employee in HR Department</td></tr>
-			<tr><td>greetings</td><td></td><td></td><td></td></tr>
-			<tr><td>firstName</td><td></td><td></td><td></td></tr>
-			<tr><td>lastName</td><td></td><td></td><td></td></tr>
-			<tr><td>languageCode</td><td></td><td></td><td></td></tr>
-			<tr><td>modifiedOn</td><td></td><td></td><td>Last time the employee's info were edited in HRnet</td></tr>
-			<tr><td>effectiveDate</td><td></td><td></td><td></td></tr>
-			<tr><td>endDate</td><td></td><td><td></td></td></tr>
-			<tr><td>categoryCode</td><td></td><td></td><td></td></tr>
-			<tr><td>postTitle</td><td></td><td><td></td></td></tr>
-			<tr><td>nationality</td><td></td><td><td></td></td></tr>
-			<tr><td>maritalStatus</td><td></td><td></td><td></td></tr>
-			<tr><td>dateOfBirth</td><td></td><td></td><td></td></tr>
-			<tr><td>dateOfDeath</td><td></td><td></td><td></td></tr>
-			<tr><td>gender</td><td></td><td><td></td></td></tr>
-			<tr><td>belgiumNationalID</td><td></td><td></td><td></td></tr>
-			<tr><td>birthCity</td><td></td><td></td><td></td></tr>
-			<tr><td>birthCountry</td><td></td><td></td><td></td></tr>
-			<tr><td>phones</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td>mobile</td><td></td><td></td></tr>
-			<tr><td></td><td>home</td><td></td><td></td></tr>
-			<tr><td></td><td>work</td><td></td><td></td></tr>
-			<tr><td></td><td>fax</td><td></td><td></td></tr>
-			<tr><td>addresses</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td>main</td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetName</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetName2</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetNumber</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>city</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td>others</td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetName</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetName2</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>streetNumber</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td></td><td>city</td><td></td><td></td><td></td></tr>
-			<tr><td>bank</td><td></td><td></td><td></td></tr>
-			<tr><td></td><td>holderName</td><td></td><td></td></tr>
-			<tr><td></td><td>name</td><td></td><td></td></tr>
-			<tr><td></td><td>accountNumber</td><td></td><td></td></tr>
+			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th><th>Lineage</th></tr>
+			<tr><td colspan="4">mission_code</td><td>String</td><td>Code of the project's mission</td><td>comes from Coda</td></tr>
+			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td><td>comes from ops file, Coda or GIS</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td><td>comes from ops files, Coda or GIS</td></tr>
+			<tr><td colspan="4">cell</td><td>String</td><td>Cellule where the project is handled</td><td>comes from  ops files,Coda or GIS</td></tr>
+			<tr><td colspan="4">opening_date</td><td>Date (YYYY-MM-DD)</td><td>Opening date of the operation for this project</td><td>comes from ops files, Coda or GIS</td></tr>
+			<tr><td colspan="4">estimated_closing_date</td><td>Date (YYYY-MM-DD)</td><td>Closing date of the operation for this project. Empty for ongoing project.</td><td>comes from ops files, Coda or GIS</td></tr>
+			<tr><td colspan="4">closing year</td><td>Integer</td><td>Actual closing year of the project (empty for active project)</td><td>comes from ops files, Coda or GIS</td></tr>
+			<tr><td colspan="4">activity</td><td>Array of String</td><td>Operation activities</td><td>comes from ops files</td></tr>
+			<tr><td colspan="4">type</td><td>Array of string</td><td>Type of the entry</td><td></td></tr>
+			<tr><td> + </td><td colspan="3">ocb_operation</td><td>String</td><td>Is an ocb operation project</td><td>comes from ops files</td></tr>
+			<tr><td> + </td><td colspan="3">finance</td><td>String</td><td>Is an fincial project</td><td>comes from coda</td></tr>
 		</table>
-      </div>
-    </div>
-    <div class="card shadow-sm staff-margin">
-      <div class=" card-body">
-        <h5 class="card-title">Access</h5>
-        <p class="card-text text-muted">Data are availlable through <b>REST API</b>, Protected by Password. Access need to be validated.
-        <div class="form-group row">
-          <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">API Documentaton</label>
-          <div class="col-sm-2">
-            <p>
-				<a href="API_Documentation/employee10-openapi30.json">openapi30</a>
-				<br/>
-				<a href="API_Documentation/employee10-swagger20.json">swagger20</a>
-			</p>
-          </div>
-        </div>
-        </p>
       </div>
     </div>
       <button type="submit"  class="btn" style="color:white;background-color: #EE0000;border-radius: 2rem;">
