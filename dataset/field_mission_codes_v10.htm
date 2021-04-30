@@ -90,8 +90,7 @@
       <div class=" card-body">
 	  <h5 class="card-title">Description</h5>
         <p class="card-text text-muted">
-		This DataSet contains field project's basic information. All info are collected since 2018.<br/>
-		To filter on current ops project, filter on closing_year blank and type contains "ocb_operation".
+		This DataSet contains field Mission Codes basic information.
         </p>
       </div>
     </div>
@@ -104,14 +103,14 @@
           <div>
             <p>
 				URL: https://hasura-main-catalog.ocb.msf.org/v1/graphql<br>
-				OBJECT: ocb_catalog_field_project_code_v10
+				OBJECT: ocb_catalog_field_mission_code_v10
 			</p>
           </div>
 		</div>
 		  <div class="form-group row">
           <label for="Paramedical staff" class="col-sm-3 col-form-label col-form-label-sm">PowerBI</label>
           <div class="col-sm-8">
-            <a href="https://app.powerbi.com/groups/87dbfcde-e464-4fa1-85dc-d7a4e506c833/reports/ef4a645f-6f9e-4930-9946-f3145297c39b/ReportSection">Power BI Report : DataCatalog - Project v1.0</a>
+            <a href="https://app.powerbi.com/groups/87dbfcde-e464-4fa1-85dc-d7a4e506c833/reports/90798ec6-b9ba-40c3-b6e2-3589d53580f4?ctid=4d9dd1af-83ce-4e9b-b090-b0543ccc2b31">Power BI Report : DatCat_Field_Mission_Codes_v1_0</a>
           </div>
         </div>
         </p>
@@ -123,16 +122,14 @@
 		<p class="card-text text-muted">Here is a full example of the data you will get in the future from the GraphQL API.</p>
 		<pre style="border: 1px outset black;"><code id="json-container2"></code></pre>
 		<script>
-			const data2 = {
-				"code": "XX1-03",
-				"name": "XXXXXX Hospital",
-				"cell":"Cell4",
-				"opening_date":"1999-05-01",
-				"estimate_closing_date":"2000-12-31",
-				"closing_year":2000,
-				"activity":["emergency","violence"],
-				"type":["ocb_operation","finance"]
-			}
+			const data2 = 
+				{
+					"code": "CD1",
+					"coordination_project_code": "CD1-00",
+					"country": "Congo - Kinshasa",
+					"name": "Congo, Democratic Republic of the",
+					"region": "Africa"
+				}
 
 			document.getElementById('json-container2').innerHTML = JSON.stringify(data2, null, 2);
 		</script>
@@ -141,8 +138,7 @@
 	<div class="card shadow-sm staff-margin">
       <div class=" card-body">
         <h5 class="card-title">Data Ownership</h5>
-		<p>Data are maintained by the Ops. ("ocb_operation" flag in the type field).</p>
-		<p>Some projects are only financial project ("finance" flag in the type field).</p>
+		<p>Data are maintained by the Fin in Coda.</p>
 	  </div>
 	</div>
     <div class="card shadow-sm staff-margin">
@@ -158,14 +154,18 @@
 		<div class="form-group row">
           <label for="Staff for invasive procedures" class="col-sm-2 col-form-label col-form-label-sm">Sources</label>
           <div class="col-sm-8">
-            <p>Coda<br>GIS</p>
+            <p>
+				Coda<br>
+				Field Project Code v1.0<br>
+				Coordination Project Code from FASU
+			</p>
           </div>
         </div>
 		<div class="form-group row">
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Refresh</label>
           <div class="col-sm-8">
             <p>
-			  Data are updated every night (02:00 AM GMT+1)
+			  Data are updated every night (02:30 AM GMT+1)
 			</p>
           </div>
         </div>
@@ -173,15 +173,7 @@
           <label for="Staff for invasive procedures_avg" class="col-sm-2 col-form-label col-form-label-sm">Transformation</label>
           <div class="col-sm-8">
 			<p>
-			  Master data application is an Excel file maintains by the OPS. <br>
-			  When a code is in the Excel file it is the master file to maintain info (code, name, activity, etc.)<br>
-			  Coda maintained by Guilhem provide info as well. If a code is in coda it is flag as financial. If exists in the XLS ops file then the ops file is the leader else all info comes from Coda. <br>
-			  Some additional infos from GIS.
-			</p>
-			<p>
-			  talend (job DW_M_10_ProjectCodesFromOpsXls) <br>
-			  talend (job DW_M_10_ProjectFromCoda) <br>
-			  talend (job DW_M_10_ProjectFromGIS) 
+				talend (DATCAT_M_10_MissionFromCoda)
 			</p>
           </div>
         </div>
@@ -200,17 +192,11 @@
 		 <p class="card-text text-muted">Here is the business description of each future data field.</p>
 		<table style="width:100%">
 			<tr><th colspan="4">Field</th><th>Type</th><th>Business description</th><th>Lineage</th></tr>
-			<tr><td colspan="4">mission_code</td><td>String</td><td>Code of the project's mission</td><td>comes from Coda</td></tr>
-			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the project</td><td>comes from ops file, Coda or GIS</td></tr>
-			<tr><td colspan="4">name</td><td>String</td><td>Name of the Project</td><td>comes from ops files, Coda or GIS</td></tr>
-			<tr><td colspan="4">cell</td><td>String</td><td>Cellule where the project is handled</td><td>comes from  ops files,Coda or GIS</td></tr>
-			<tr><td colspan="4">opening_date</td><td>Date (YYYY-MM-DD)</td><td>Opening date of the operation for this project</td><td>comes from ops files, Coda or GIS</td></tr>
-			<tr><td colspan="4">estimated_closing_date</td><td>Date (YYYY-MM-DD)</td><td>Closing date of the operation for this project. Empty for ongoing project.</td><td>comes from ops files, Coda or GIS</td></tr>
-			<tr><td colspan="4">closing year</td><td>Integer</td><td>Actual closing year of the project (empty for active project)</td><td>comes from ops files, Coda or GIS</td></tr>
-			<tr><td colspan="4">activity</td><td>Array of String</td><td>Operation activities</td><td>comes from ops files</td></tr>
-			<tr><td colspan="4">type</td><td>Array of string</td><td>Type of the entry</td><td></td></tr>
-			<tr><td> + </td><td colspan="3">ocb_operation</td><td>String</td><td>Is an ocb operation project</td><td>comes from ops files</td></tr>
-			<tr><td> + </td><td colspan="3">finance</td><td>String</td><td>Is an fincial project</td><td>comes from coda</td></tr>
+			<tr><td colspan="4">code</td><td>String</td><td>Unique identifier of the mission</td><td>Coda</td></tr>
+			<tr><td colspan="4">name</td><td>String</td><td>Name of the Mission</td><td>Coda</td></tr>
+			<tr><td colspan="4">country</td><td>String</td><td>Country hosting the mission</td><td>Field_Project_Codes_v1.0</td></tr>
+			<tr><td colspan="4">region</td><td>String</td><td>Region of the mission</td><td>Field_Project_Codes_v1.0</td></tr>
+			<tr><td colspan="4">coordination_project_code</td><td>String</td><td>Project Code of the coordination project</td><td>Maintained by FIN (Franco Fava) immediatelly in Data Rep</td></tr>
 		</table>
       </div>
     </div>
